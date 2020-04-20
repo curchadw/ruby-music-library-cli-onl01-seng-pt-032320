@@ -5,15 +5,15 @@ class Song
     attr_reader :artist
     @@all = Array.new
 
-    def initialize(name,artist = nil, genre = nil)       
+    def initialize(name,artist = nil, genre = nil)
         @name = name
         self.artist = artist unless artist.nil?
         self.genre = genre unless genre.nil?
         @songs = Array.new
-        
+
     end
 
-    
+
     def save
         @@all << self
     end
@@ -42,12 +42,12 @@ class Song
         self.genre
         genre.songs.push(self) unless genre.songs.include?(self)
     end
-    
+
     def self.find_by_name(name)
         self.all.find do |song|
             song.name == name
         end
-    
+
     end
 
     def self.find_or_create_by_name(name)
@@ -69,6 +69,6 @@ class Song
     end
 
 
-    
-    
+
+
 end
